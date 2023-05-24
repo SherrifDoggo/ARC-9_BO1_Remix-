@@ -6,8 +6,10 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "M1911"
 SWEP.Class = "Pistol"
-SWEP.Description = [[A staple of firearm design, in service with military forces, law enforcement agencies and civilians for over 100 years. A pistol that forgot to become obsolete.
-Fires a powerful cartridge, but is let down by its single stack magazine.]]
+SWEP.Description = [[A gun that's won two world wars and still has enough life left in it to keep going.
+Maybe even if the time ever came for a third one, it'd probably win it again.
+
+Packs a lot more punch than most other pistols, though it has very low ammo count and a slower fire rate.]]
 SWEP.Trivia = {
     Manufacturer = "Colt",
     Calibre = ".45 ACP",
@@ -25,24 +27,23 @@ SWEP.Slot = 1
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_m1911.mdl"
-SWEP.WorldModel = "models/weapons/w_pist_usp.mdl"
-SWEP.WorldModelMirror = "models/weapons/arc9/c_bo1_m1911.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo1_m1911.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelOffset = {
-    Pos        =    Vector(-9.75, 3, -3.75),
+    Pos        =    Vector(-10.75, 3, -1.75),
     Ang        =    Angle(-6, 0, 180),
     Bone    =    "ValveBiped.Bip01_R_Hand",
     Scale = 1.1,
 }
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 80
 
 SWEP.DefaultBodygroups = "00000000000000"
 
-SWEP.DamageMax = 45
-SWEP.DamageMin = 20 -- damage done at maximum range
-SWEP.RangeMax = 3000
-SWEP.RangeMin = 800
+SWEP.DamageMax = 35
+SWEP.DamageMin = 15 -- damage done at maximum range
+SWEP.RangeMax = 2000
+SWEP.RangeMin = 0
 SWEP.Penetration = 4
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any
@@ -64,16 +65,14 @@ SWEP.TracerFinalMag = 0 -- The last X bullets in a magazine are all tracers
 SWEP.TracerEffect = "ARC9_tracer" -- The effect to use for hitscan tracers
 SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
 
-SWEP.ChamberSize = 0 -- dont fucking change this again.
-SWEP.ClipSize = 8 -- DefaultClip is automatically set.
-SWEP.SupplyLimit = 10
-SWEP.SecondarySupplyLimit = 10
-SWEP.ReloadTime = 1
+SWEP.ChamberSize = 1 -- dont fucking change this again.
+SWEP.ClipSize = 7 -- DefaultClip is automatically set.
+SWEP.ReloadTime = 0.8
 
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.Recoil = 0.6
+SWEP.Recoil = 4
 SWEP.RecoilSide = 0.7
 SWEP.RecoilUp = 0.7
 
@@ -83,16 +82,15 @@ SWEP.RecoilRandomSide = 0.35
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 0.5
-SWEP.RecoilKick = 1
+SWEP.RecoilAutoControl = 1
+SWEP.RecoilKick = 5
 
 SWEP.Spread = math.rad(3 / 37.5)
 SWEP.SpreadMultShooting = 1.25
 
 SWEP.SpreadMultSights = 1
-SWEP.SpreadAddHipFire = math.rad(120 / 37.5)
+SWEP.SpreadAddHipFire = math.rad(60 / 37.5)
 SWEP.SpreadAddMove = math.rad(50 / 37.5)
-SWEP.SpreadMultMoveSights = 0.5
 SWEP.SpreadAddMidAir = 0
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(100 / 37.5)
 
@@ -107,8 +105,8 @@ SWEP.VisualRecoilMultSights = 0
 
 SWEP.Speed = 1
 
-SWEP.ShootWhileSprint = true
-SWEP.ReloadInSights = false
+SWEP.ShootWhileSprint = false
+SWEP.ReloadInSights = true
 
 SWEP.SpeedMultSights = 0.8
 SWEP.SpeedMultShooting = 0.75
@@ -124,6 +122,7 @@ SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = 1,
+		PrintName = "SEMI"
     },
 }
 SWEP.ARC9WeaponCategory = 1
@@ -143,7 +142,7 @@ SWEP.ShootPitch = 100
 SWEP.ShootPitchVariation = 0
 
 SWEP.ShootSound = "ARC9_BO1.M1911_Fire"
-SWEP.ShootSoundSilenced = "ARC9_BO2.Pistol_Sil"
+SWEP.ShootSoundSilenced = "ARC9_BO1.M1911_FireSup"
 SWEP.DistantShootSound = "ARC9_BO1.M1911_RingOff"
 
 --SWEP.MuzzleEffect = "muzzleflash_1"
@@ -169,9 +168,9 @@ SWEP.CaseBones = {}
 SWEP.IronSights = {
     Pos = Vector(-2.44, -1, 0.675),
     Ang = Angle(-0.1, 0.1, 0),
-    Magnification = 1.1,
+    Magnification = 1.25,
     --AssociatedSlot = 9,
-    ViewModelFOV = 60,
+    ViewModelFOV = 50,
     CrosshairInSights = false,
     SwitchToSound = "", -- sound that plays when switching to this sight
 }
@@ -188,7 +187,7 @@ SWEP.HoldTypeSights = "revolver"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_PISTOL
 
-SWEP.ActivePos = Vector(0, 0, -1)
+SWEP.ActivePos = Vector(0, 0.5, -1.2)
 SWEP.ActiveAng = Angle(0, 0, -5)
 
 SWEP.MovingPos = SWEP.ActivePos
@@ -199,8 +198,8 @@ SWEP.MovingMidPoint = {
     Ang = SWEP.ActiveAng
 }
 
-SWEP.CrouchPos = SWEP.ActivePos + Vector(-1, 0, -1)
-SWEP.CrouchAng = SWEP.ActiveAng
+SWEP.CrouchPos = Vector(-1.5, -2.5, -2.25)
+SWEP.CrouchAng = Angle(0, 0, -20)
 
 SWEP.RestPos = SWEP.ActivePos
 SWEP.RestAng = SWEP.ActiveAng
@@ -211,7 +210,7 @@ SWEP.SprintAng = SWEP.ActiveAng
 
 SWEP.CustomizePos = Vector(15, 25, 4)
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizeSnapshotPos = Vector(2.5, -10, 0)
+SWEP.CustomizeSnapshotPos = Vector(0, -10, 0)
 SWEP.CustomizeSnapshotAng = Angle(0, 0, 0)
 
 SWEP.BarrelLength = 0 -- = 9
@@ -344,19 +343,52 @@ SWEP.HookP_NameChange = function(self, name)
         gunname = "Colt Longslide"
     end
 
-    if attached["bo1_pap"] then
-        gunname = "Pain"
+	-- Sentience Combos --
 
-        if attached["shortbarrel"] then
-            gunname = "A Light Shining in Darkness"
-        end
-        if attached["longbarrel"] then
-            gunname = "Agent XLVII"
-        end
-    end
-    if attached["sally"] then
-        gunname = "C-3000 B1at-ch35"
-    end
+    if attached["bo1r_enchant_sentience"] then
+        gunname = "Joshua Graham"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "Jessie Mcleod"
+		
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "Jessie Mcleod"
+
+			elseif attached["camo_sdcp_bgsecret"]  then
+			gunname = "Peppino Spaghetti"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Da Vinci"
+			
+			elseif attached["shortbarrel"]  then
+			gunname = "Dan Taylor"
+
+			elseif attached["longbarrel"]  then
+			gunname = "Eightball"
+			end
+	end
+
+	-- Rage Combos --
+
+	if attached["bo1r_enchant_rage"] then
+		gunname = "Kick O' The Mule"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "A Lady Scorned"
+
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Cryptex"
+			
+			elseif attached["shortbarrel"]  then
+			gunname = "Kick O' The Pony"
+			
+			elseif attached["longbarrel"]  then
+			gunname = "Kick O' The Bronco"
+			end
+	end
 
     return gunname
 end
@@ -377,12 +409,12 @@ end
 SWEP.Attachments = {
     {
         PrintName = "Slide",
-        DefaultCompactName = "5\" G.I.",
+        DefaultCompactName = "Slide",
         Bone = "j_bolt",
         Pos = Vector(2, 0, 0),
         Ang = Angle(0, 0, 0),
         Category = {"bo1_m1911_slides"},
-        DefaultIcon = Material("materials/entities/bo1_atts/cosmetic/waw_1911.png", "mips smooth"),
+        DefaultIcon = Material("materials/icons_new/1911/stdbarrel.png", "mips smooth"),
     },
     {
         PrintName = "Irons",
@@ -459,50 +491,47 @@ SWEP.Attachments = {
         Category = {"bo1_ammo", "bo1_pap", "bo1_pap_1911"},
     },
     {
-        PrintName = "Perk-a-Cola",
-        DefaultCompactName = "COLA",
+        PrintName = "Enchantment",
+        DefaultCompactName = "Enchantment",
         Bone = "j_gun",
         Pos = Vector(-3, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = "bo1_perkacola",
+        Category = "bo1r_enchanment",
         ExcludeElements = {"mwc_perk", "mwc_proficiency"},
     },
     {
-        PrintName = "Perk",
-        DefaultCompactName = "PERK",
+        PrintName = "Skill",
+        DefaultCompactName = "Skill",
         Bone = "j_gun",
         Pos = Vector(-6, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = "mwc_perk",
-        ExcludeElements = {"bo1_perkacola"},
-    },
-    {
-        PrintName = "Proficiency",
-        DefaultCompactName = "PRO",
-        Bone = "j_gun",
-        Pos = Vector(-9, 0, -5),
-        Ang = Angle(0, 0, 0),
-        Category = "mwc_proficiency",
+        Category = "bo1r_skill",
         ExcludeElements = {"bo1_perkacola"},
     },
     {
         PrintName = "Finish",
-        DefaultCompactName = "G.I. Finish",
+        DefaultCompactName = "Finish",
         Bone = "j_gun",
         Pos = Vector(-5, 0, 2),
         Ang = Angle(0, 0, 0),
         Category = {"bo1_m1911_cosmetics"},
-        DefaultIcon = Material("materials/entities/bo1_generic.png", "mips smooth"),
         CosmeticOnly = true,
     },
     {
         PrintName = "Sounds",
-        DefaultCompactName = "BO1",
+        DefaultCompactName = "Sounds",
         Bone = "j_gun",
         Pos = Vector(-7.5, 0, 2),
         Ang = Angle(0, 0, 0),
         Category = {"bo1_m1911_sounds"},
-        DefaultIcon = Material("materials/entities/bo1_generic.png", "mips smooth"),
+        CosmeticOnly = true,
+    },
+	{
+        PrintName = "Camo",
+        Bone = "j_gun",
+        Pos = Vector(-6.25, 0, 2),
+        Ang = Angle(0, 0, 0),
+        Category = {"universal_camo"},
         CosmeticOnly = true,
     },
 }

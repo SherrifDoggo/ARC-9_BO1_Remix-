@@ -6,7 +6,9 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = [[SOG Knife]]
 SWEP.Class = "Knife"
-SWEP.Description = [[Knife used by the legendary special forces unit, MACV-SOG.]]
+SWEP.Description = [[Special forces knife from back in nam'. Still cuts into men like it did back in the day.
+
+Real good for sneaky bastards with it's inmense backstab damage.]]
 SWEP.Trivia = {
     Manufacturer = "[REDACTED]",
     Mechanism = "Slashing",
@@ -15,7 +17,8 @@ SWEP.Trivia = {
     Games = [[BO1, BO2]]
 }
 SWEP.Credits = {
-    Author = "Palindrone"
+    Author = "Palindrone",
+	Remix = "Sherrifdoggo",
 }
 
 SWEP.Slot = 0
@@ -23,7 +26,7 @@ SWEP.Slot = 0
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_sog_knife.mdl"
-SWEP.WorldModel = "models/weapons/w_knife_ct.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo1_sog_knife.mdl"
 SWEP.WorldModelMirror = "models/weapons/arc9/c_bo1_sog_knife.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
@@ -35,7 +38,7 @@ SWEP.WorldModelOffset = {
     Bone    =    "ValveBiped.Bip01_R_Hand",
     Scale = 1.1 ,
 }
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 80
 
 SWEP.DefaultBodygroups = "00000000000000"
 SWEP.NoTPIKVMPos = true
@@ -69,28 +72,28 @@ SWEP.ShootWhileSprint = true
 SWEP.Bash = true
 SWEP.PrimaryBash = true
 
-SWEP.BashDamage = 70
+SWEP.BashDamage = 15
 SWEP.BashLungeRange = 128
 SWEP.BashRange = 48
-SWEP.PreBashTime = 0.25
-SWEP.PostBashTime = 0.5
+SWEP.PreBashTime = 0.15
+SWEP.PostBashTime = 0.25
 SWEP.BashDamageType = DMG_SLASH
 
 SWEP.Bash2 = true
 SWEP.SecondaryBash = true
 
-SWEP.Bash2Damage = 100
+SWEP.Bash2Damage = 50
 SWEP.Bash2LungeRange = 256
 SWEP.Bash2Range = 48
-SWEP.PreBash2Time = 0.25
-SWEP.PostBash2Time = 0.5
+SWEP.PreBash2Time = 0.15
+SWEP.PostBash2Time = 1.5
 SWEP.Bash2DamageType = DMG_SLASH
 
 SWEP.Backstab = true
-SWEP.BackstabDamage = 250
+SWEP.BackstabDamage = 200
 SWEP.BackstabRange = 32
-SWEP.PreBackstabTime = 0.25
-SWEP.PostBackstabTime = 0.5
+SWEP.PreBackstabTime = 0.15
+SWEP.PostBackstabTime = 1.5
 SWEP.BackstabDamageType = DMG_SLASH
 
 -------------------------- POSITIONS
@@ -134,8 +137,10 @@ SWEP.HoldTypeSights = "knife"
 SWEP.HoldTypeCustomize = "knife"
 
 SWEP.MeleeSwingSound = "ARC9_BO1.Knife_Swing"
+SWEP.MeleeHitWallSound = "ARC9_BO1.Knife_HitWall"
 SWEP.MeleeMissSound = "ARC9_BO1.Knife_Swing"
-SWEP.MeleeHitSound = "ARC9_BO1.Knife_HitObject"
+SWEP.MeleeHitSound = "ARC9_BO1.Knife_Slash"
+SWEP.BackstabSound = "ARC9_BO1.Knife_Stab"
 SWEP.MeleeHitNPCSound = "ARC9_BO1.Knife_Slash"
 
 SWEP.MuzzleEffectQCA = 1 -- which attachment to put the muzzle on
@@ -151,8 +156,8 @@ SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_KNIFE
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_KNIFE
 SWEP.AnimMelee = ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE
 
-SWEP.ActivePos = Vector(0, 0, -1)
-SWEP.ActiveAng = Angle(0, 0, -5)
+SWEP.ActivePos = Vector(0, 0, -2)
+SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.MovingPos = SWEP.ActivePos
 SWEP.MovingAng = SWEP.ActiveAng
@@ -162,7 +167,7 @@ SWEP.MovingMidPoint = {
     Ang = SWEP.ActiveAng
 }
 
-SWEP.CrouchPos = SWEP.ActivePos + Vector(0, 0, 1)
+SWEP.CrouchPos = SWEP.ActivePos + Vector(0, -5, 2)
 SWEP.CrouchAng = SWEP.ActiveAng
 
 SWEP.RestPos = SWEP.ActivePos
@@ -172,10 +177,10 @@ SWEP.SprintVerticalOffset = false
 SWEP.SprintPos = SWEP.ActivePos
 SWEP.SprintAng = SWEP.ActiveAng
 
-SWEP.CustomizePos = Vector(18.5, 20, -32.5)
+SWEP.CustomizePos = Vector(2.5, 10, -20)
 SWEP.CustomizeAng = Angle(0, 90, 0)
-SWEP.CustomizeSnapshotPos = Vector(-15, 20, 32.5 / 2)
-SWEP.CustomizeSnapshotAng = Angle(0, 0, 0)
+SWEP.CustomizeSnapshotPos = Vector(-2, 30, 32.5 / 2)
+SWEP.CustomizeSnapshotAng = Angle(20, 90, 20)
 SWEP.CustomizeNoRotate = true
 
 SWEP.BarrelLength = 0 -- = 0
@@ -248,7 +253,7 @@ SWEP.Animations = {
     },
     ["draw"] = {
         Source = "draw",
-        Time = 1,
+        Time = 0.5,
     },
     ["ready"] = {
         Source = "draw",
@@ -256,19 +261,19 @@ SWEP.Animations = {
     },
     ["holster"] = {
         Source = "holster",
-        Time = 1,
+        Time = 0.5,
     },
     ["bash"] = {
         Source = {"swipe"},
-        Time = 1,
+        Time = 0.75,
     },
     ["bash2"] = {
         Source = {"stab"},
-        Time = 1.33,
+        Time = 1.25,
     },
     ["backstab"] = {
         Source = {"stab"},
-        Time = 1.33,
+        Time = 1.25,
     },
     ["enter_sprint"] = {
         Source = {"idle"},
@@ -276,7 +281,7 @@ SWEP.Animations = {
     },
     ["idle_sprint"] = {
         Source = {"sprint_loop"},
-        Time = 2.75 / 4,
+        Time = 3 / 4,
     },
     ["exit_sprint"] = {
         Source = {"idle"},

@@ -25,7 +25,7 @@ SWEP.Slot = 1
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_python.mdl"
-SWEP.WorldModel = "models/weapons/w_357.mdl"
+SWEP.WorldModel = "models/weapons/arc9/w_bo1_python.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelMirror = "models/weapons/arc9/w_bo1_python.mdl"
@@ -39,10 +39,10 @@ SWEP.ViewModelFOVBase = 75
 
 SWEP.DefaultBodygroups = "00010000000000"
 
-SWEP.DamageMax = 60
+SWEP.DamageMax = 55
 SWEP.DamageMin = 25 -- damage done at maximum range
 SWEP.RangeMax = 4000
-SWEP.RangeMin = 500
+SWEP.RangeMin = 0
 SWEP.Penetration = 4
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any
@@ -66,18 +66,16 @@ SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if trace
 
 SWEP.ChamberSize = 0 -- dont fucking change this again.
 SWEP.ClipSize = 6 -- DefaultClip is automatically set.
-SWEP.ReloadTime = 1
-SWEP.SupplyLimit = 9
-SWEP.SecondarySupplyLimit = 9
+SWEP.ReloadTime = 0.8
 SWEP.HybridReload = true
 SWEP.ShotgunReload = false
 
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.Recoil = 1
-SWEP.RecoilSide = 0.7
-SWEP.RecoilUp = 0.8
+SWEP.Recoil = 15
+SWEP.RecoilSide = 2
+SWEP.RecoilUp = 1
 
 SWEP.RecoilRandomUp = 0.5
 SWEP.RecoilRandomSide = 0.35
@@ -85,15 +83,15 @@ SWEP.RecoilRandomSide = 0.35
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 0.5
-SWEP.RecoilKick = 3
+SWEP.RecoilAutoControl = 4
+SWEP.RecoilKick = 10
 
-SWEP.Spread = math.rad(2 / 37.5)
-SWEP.SpreadMultShooting = 1.25
+SWEP.Spread = math.rad(4 / 37.5)
+SWEP.SpreadMultShooting = 2
 
-SWEP.SpreadMultSights = 0.1
-SWEP.SpreadAddHipFire = math.rad(120 / 37.5)
-SWEP.SpreadAddMove = math.rad(50 / 37.5)
+SWEP.SpreadMultSights = 8
+SWEP.SpreadAddHipFire = math.rad(50 / 35)
+SWEP.SpreadAddMove = math.rad(75 / 37.5)
 SWEP.SpreadAddMidAir = 0
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(120 / 37.5)
 
@@ -125,7 +123,7 @@ SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = 1,
-        PrintName = "SINGLE"
+        PrintName = "DBAC"
     },
 }
 SWEP.ARC9WeaponCategory = 1
@@ -172,8 +170,8 @@ SWEP.CaseBones = {}
 SWEP.IronSights = {
     Pos = Vector(-2.15, 0, 0.95),
     Ang = Angle(0, -0.5, 0),
-    Magnification = 1.1,
-    ViewModelFOV = 60,
+    Magnification = 1.25,
+    ViewModelFOV = 50,
     CrosshairInSights = false,
     SwitchToSound = "", -- sound that plays when switching to this sight
 }
@@ -190,7 +188,7 @@ SWEP.HoldTypeSights = "revolver"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_PISTOL
 
-SWEP.ActivePos = Vector(0, -2, -2)
+SWEP.ActivePos = Vector(0, 2, -1)
 SWEP.ActiveAng = Angle(0, 0, -5)
 
 SWEP.MovingPos = SWEP.ActivePos
@@ -201,14 +199,14 @@ SWEP.MovingMidPoint = {
     Ang = SWEP.ActiveAng
 }
 
-SWEP.CrouchPos = SWEP.ActivePos + Vector(-1, 0, -1)
-SWEP.CrouchAng = SWEP.ActiveAng
+SWEP.CrouchPos = SWEP.ActivePos + Vector(-2, 0, -2)
+SWEP.CrouchAng = SWEP.ActiveAng + Angle(0, 0, -15)
 
 SWEP.RestPos = SWEP.ActivePos
 SWEP.RestAng = SWEP.ActiveAng
 
 SWEP.SprintVerticalOffset = false
-SWEP.SprintPos = SWEP.ActivePos
+SWEP.SprintPos = Vector(0, 0, -2)
 SWEP.SprintAng = SWEP.ActiveAng
 
 SWEP.CustomizePos = Vector(17.5, 25, 4.25)
@@ -250,9 +248,29 @@ SWEP.HookP_NameChange = function(self, name)
 
     local gunname = "Colt Python"
 
-    if attached["bo1_pap"] then
-        gunname = "Cobra"
-    end
+	if attached["bo1_ammotypes_357_38spcl"] then
+		gunname = "Charter Arms .38"
+	end
+
+	-- Sentience Combos --
+
+    if attached["bo1r_enchant_sentience"] then
+        gunname = "Shalashaska"
+			
+			if attached["bo1_ammotypes_357_38spcl"]  then
+			gunname = "John Lennon"
+			end
+	end
+	
+	-- Rage Combos --
+
+    if attached["bo1r_enchant_rage"] then
+        gunname = "Whamola"
+			
+			if attached["bo1_ammotypes_357_38spcl"]  then
+			gunname = "Voice Multiplier"
+			end
+	end
 
     return gunname
 end
@@ -260,8 +278,6 @@ end
 SWEP.Hook_TranslateAnimation = function (self, anim)
     -- local attached = self:GetElements()
 end
-
---TEST 3
 
 SWEP.Attachments = {
     {
@@ -285,7 +301,7 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Tactical",
-        DefaultCompactName = "TAC",
+        DefaultCompactName = "Tactical",
         Bone = "j_gun",
         Scale = Vector(1, 1, 1),
         Pos = Vector(9, 0.075, 1.5),
@@ -303,37 +319,29 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Ammunition",
-        DefaultCompactName = "AMMO",
+        DefaultCompactName = ".357 FMJ",
         Bone = "j_gun",
         Pos = Vector(4, 0, 0),
         Ang = Angle(0, 0, 0),
-        Category = {"bo1_ammo", "bo1_pap"},
+        Category = {"bo1_ammotypes_357"},
+		ExcludeElements = {"bo1_pap"},
     },
     {
-        PrintName = "Perk-a-Cola",
-        DefaultCompactName = "COLA",
+        PrintName = "Enchantment",
+        DefaultCompactName = "Enchantment",
         Bone = "j_gun",
         Pos = Vector(5, 0, -3),
         Ang = Angle(0, 0, 0),
-        Category = "bo1_perkacola",
+        Category = "bo1r_enchanment",
         ExcludeElements = {"mwc_perk", "mwc_proficiency"},
     },
     {
-        PrintName = "Perk",
-        DefaultCompactName = "PERK",
-        Bone = "j_gun",
-        Pos = Vector(2, 0, -3),
-        Ang = Angle(0, 0, 0),
-        Category = "mwc_perk",
-        ExcludeElements = {"bo1_perkacola"},
-    },
-    {
-        PrintName = "Proficiency",
-        DefaultCompactName = "PRO",
+        PrintName = "Skill",
+        DefaultCompactName = "Skill",
         Bone = "j_gun",
         Pos = Vector(-1, 0, -3),
         Ang = Angle(0, 0, 0),
-        Category = "mwc_proficiency",
+        Category = "bo1r_skill",
         ExcludeElements = {"bo1_perkacola"},
     },
 }
@@ -378,28 +386,27 @@ SWEP.Animations = {
     },
     ["reload_start"] = {
         Source = "reload_in",
-        Time = 67 / 40,
+        Time = 52 / 30,
         RestoreAmmo = 1, -- loads a shell since the first reload has a shell in animation
-        MinProgress = 1,
+        MinProgress = 1.2,
         EventTable = {
-            {s = "ARC9_BO1.Python_Open", t = 20 / 40},
-            {s = "ARC9_BO1.Python_Empty", t = 26 / 40},
-            {s = "ARC9_BO1.Python_Bullet", t = 62 / 40},
+            {s = "ARC9_BO1.Python_Open", t = 20 / 35},
+            {s = "ARC9_BO1.Python_Empty", t = 26 / 35},
         },
     },
     ["reload_insert"] = {
         Source = "reload_loop",
-        Time = 31 / 40,
-        MinProgress = 25 / 40,
+        Time = 16 / 30,
+        MinProgress = 16 / 30,
         EventTable = {
-            {s = "ARC9_BO1.Python_Bullet", t = 25 / 40},
+            {s = "ARC9_BO1.Python_Bullet", t = 13 / 30},
         },
     },
     ["reload_finish"] = {
         Source = "reload_out_snap",
-        Time = 33 / 40,
+        Time = 33 / 30,
         EventTable = {
-            {s = "ARC9_BO1.Python_Close", t = 8 / 40},
+            {s = "ARC9_BO1.Python_Close", t = 8 / 30},
         },
     },
     ["reload"] = {

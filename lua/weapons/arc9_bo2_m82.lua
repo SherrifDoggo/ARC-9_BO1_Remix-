@@ -6,8 +6,10 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "Barrett M82A1"
 SWEP.Class = "Anti-Materiel Precision Rifle"
-SWEP.Description = [[American semi-automatic, high caliber sniper rifle. Effective at long range. 
-Very heavy, very powerful, and extremely dangerous in the right hands.]]
+SWEP.Description = [[Legally speaking, the biggest gun you can get your hands on. It has the heft of a barbell and 
+bullets the size of index fingers. Try not to have too much fun.
+
+Will turn anything to mulch, though you better not miss the first shot.]]
 SWEP.Trivia = {
     Manufacturer = "Barrett",
     Calibre = ".50 BMG",
@@ -25,8 +27,7 @@ SWEP.Slot = 2
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo2_m82.mdl"
-SWEP.WorldModel = "models/weapons/w_snip_sg550.mdl"
-SWEP.WorldModelMirror = "models/weapons/arc9/c_bo2_m82.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo2_m82.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelOffset = {
@@ -35,14 +36,14 @@ SWEP.WorldModelOffset = {
     Bone    =    "ValveBiped.Bip01_R_Hand",
     Scale = 1,
 }
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 80
 
 SWEP.DefaultBodygroups = "00000000000"
 
-SWEP.DamageMax = 300
-SWEP.DamageMin = 75 -- damage done at maximum range
+SWEP.DamageMax = 200
+SWEP.DamageMin = 50 -- damage done at maximum range
 SWEP.RangeMax = 10000
-SWEP.RangeMin = 2500
+SWEP.RangeMin = 0
 SWEP.Penetration = 50
 SWEP.ImpactForce = 25
 SWEP.ArmorPiercing = 0.99
@@ -53,12 +54,12 @@ SWEP.EntityMuzzleVelocity = 10000
 SWEP.PhysBulletMuzzleVelocity = 2500 * 39.37
 
 SWEP.BodyDamageMults = {
-    [HITGROUP_HEAD] = 2,
+    [HITGROUP_HEAD] = 2.5,
     [HITGROUP_CHEST] = 1,
-    [HITGROUP_LEFTARM] = 1,
-    [HITGROUP_RIGHTARM] = 1,
-    [HITGROUP_LEFTLEG] = 1,
-    [HITGROUP_RIGHTLEG] = 1,
+    [HITGROUP_LEFTARM] = 0.8,
+    [HITGROUP_RIGHTARM] = 0.8,
+    [HITGROUP_LEFTLEG] = 0.8,
+    [HITGROUP_RIGHTLEG] = 0.8,
 }
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -66,34 +67,32 @@ SWEP.TracerFinalMag = 0 -- The last X bullets in a magazine are all tracers
 SWEP.TracerEffect = "ARC9_tracer" -- The effect to use for hitscan tracers
 SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
 
-SWEP.ChamberSize = 0 -- dont fucking change this again.
+SWEP.ChamberSize = 1 -- dont fucking change this again.
 SWEP.ClipSize = 5 -- DefaultClip is automatically set.
-SWEP.SupplyLimit = 10
-SWEP.SecondarySupplyLimit = 10
-SWEP.ReloadTime = 1
+SWEP.ReloadTime = 1.2
 
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.Recoil = 2
-SWEP.RecoilSide = 0.7
-SWEP.RecoilUp = 2
+SWEP.Recoil = 10
+SWEP.RecoilSide = 5
+SWEP.RecoilUp = 5
 
 SWEP.RecoilRandomUp = 1
-SWEP.RecoilRandomSide = 0.6
+SWEP.RecoilRandomSide = 2
 
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
 
 SWEP.RecoilAutoControl = 0.3
-SWEP.RecoilKick = 4
+SWEP.RecoilKick = 25
 
-SWEP.Spread = math.rad(2.3 / 37.5)
-SWEP.SpreadMultShooting = 1.25
+SWEP.Spread = math.rad(3 / 37.5)
+SWEP.SpreadMultShooting = 2
 
-SWEP.SpreadMultSights = 0.1
-SWEP.SpreadAddHipFire = math.rad(250 / 37.5)
-SWEP.SpreadAddMove = math.rad(0 / 37.5)
+SWEP.SpreadMultSights = 2.5
+SWEP.SpreadAddHipFire = math.rad(300 / 37.5)
+SWEP.SpreadAddMove = math.rad(50 / 37.5)
 SWEP.SpreadAddMidAir = 0
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
 
@@ -108,8 +107,8 @@ SWEP.VisualRecoilMultSights = 0
 
 SWEP.Speed = 0.75
 
-SWEP.ShootWhileSprint = true
-SWEP.ReloadInSights = false
+SWEP.ShootWhileSprint = false
+SWEP.ReloadInSights = true
 
 SWEP.SpeedMultSights = 0.8
 SWEP.SpeedMultShooting = 0.75
@@ -118,7 +117,7 @@ SWEP.SpeedMultCrouch = 1
 SWEP.SpeedMultBlindFire = 1
 
 SWEP.AimDownSightsTime = 0.5
-SWEP.SprintToFireTime = 0.5
+SWEP.SprintToFireTime = 0.15
 
 SWEP.Sway = 0
 SWEP.SwayAddSights = 0.25
@@ -128,11 +127,12 @@ SWEP.RestoreBreathTime = 10
 SWEP.FreeAimRadius = 0
 SWEP.FreeAimRadiusMultSights = 0
 
-SWEP.RPM = 125
+SWEP.RPM = 200
 SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = 1,
+		PrintName = "SEMI"
     },
 }
 SWEP.ARC9WeaponCategory = 5
@@ -144,7 +144,7 @@ SWEP.ShootVolume = 170
 SWEP.ShootPitch = 80
 SWEP.ShootPitchVariation = 0
 
-SWEP.ShootSound = "ARC9_BO2.DSR50_Fire"
+SWEP.ShootSound = "ARC9_BO1.M82_Fire"
 SWEP.ShootSoundSilenced = "ARC9_BO2.Ballista_Sil"
 SWEP.DistantShootSound = {"^weapons/ARC9/bo2_generic_sniper/dist/flux_l.wav", "^weapons/ARC9/bo2_generic_sniper/dist/flux_r.wav"}
 
@@ -152,8 +152,8 @@ SWEP.DistantShootSound = {"^weapons/ARC9/bo2_generic_sniper/dist/flux_l.wav", "^
 SWEP.MuzzleParticle = "muzzleflash_M82" -- Used for some muzzle effects.
 
 SWEP.ShellModel = "models/shells/shell_556.mdl"
-SWEP.ShellPitch = 90
-SWEP.ShellScale = 1.5
+SWEP.ShellPitch = 70
+SWEP.ShellScale = 2.75
 
 SWEP.MuzzleEffectQCA = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectQCA = 2 -- which attachment to put the case effect on
@@ -262,9 +262,40 @@ SWEP.HookP_NameChange = function(self, name)
 
     local gunname = "Barrett M82"
 
-    if attached["bo1_pap"] then
-        gunname = "Macro Annihilator"
-    end
+	-- Sentience Combos --
+
+    if attached["bo1r_enchant_sentience"] then
+        gunname = "Big Billy"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "Jessie Mcleod"
+		
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "Jessie Mcleod"
+
+			elseif attached["camo_sdcp_bgsecret"]  then
+			gunname = "Peppino Spaghetti"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Da Vinci"
+			end
+	end
+	
+		-- Rage Combos --
+
+	if attached["bo1r_enchant_rage"] then
+		gunname = "The Logical Conclusion"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "A Lady Scorned"
+
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Cryptex"
+			end
+	end
 
     return gunname
 end
@@ -332,30 +363,21 @@ SWEP.Attachments = {
         Category = {"bo1_ammo", "bo1_pap"},
     },
     {
-        PrintName = "Perk-a-Cola",
-        DefaultCompactName = "COLA",
+        PrintName = "Enchantment",
+        DefaultCompactName = "Enchantment",
         Bone = "j_gun",
         Pos = Vector(-2, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = "bo1_perkacola",
+        Category = "bo1r_enchanment",
         ExcludeElements = {"mwc_perk", "mwc_proficiency"},
     },
     {
-        PrintName = "Perk",
-        DefaultCompactName = "PERK",
+        PrintName = "Skill",
+        DefaultCompactName = "Skill",
         Bone = "j_gun",
         Pos = Vector(-5, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = "mwc_perk",
-        ExcludeElements = {"bo1_perkacola"},
-    },
-    {
-        PrintName = "Proficiency",
-        DefaultCompactName = "PRO",
-        Bone = "j_gun",
-        Pos = Vector(-8, 0, -5),
-        Ang = Angle(0, 0, 0),
-        Category = "mwc_proficiency",
+        Category = "bo1r_skill",
         ExcludeElements = {"bo1_perkacola"},
     },
     {
@@ -408,8 +430,8 @@ SWEP.Animations = {
         Source = "reload",
         Time = 114 / 35,
         EventTable = {
-            {s = "ARC9_BO2.Sniper_ClipOut", t = 0.5},
-            {s = "ARC9_BO2.Sniper_ClipIn", t = 1.9},
+            {s = "ARC9_BO1.M82_MagOut", t = 0.75},
+            {s = "ARC9_BO1.M82_MagIn", t = 1.9},
         },
         IKTimeLine = {
             {
@@ -438,10 +460,10 @@ SWEP.Animations = {
         Source = "reload_empty",
         Time = 142 / 35,
         EventTable = {
-            {s = "ARC9_BO2.Sniper_ClipOut", t = 0.5},
-            {s = "ARC9_BO2.Sniper_ClipIn", t = 1.9},
-            {s = "ARC9_BO2.Sniper_BoltBack", t = 2.9},
-            {s = "ARC9_BO2.Sniper_BoltFwd", t = 3.1},
+            {s = "ARC9_BO1.M82_MagOut", t = 0.75},
+            {s = "ARC9_BO1.M82_MagIn", t = 1.9},
+            {s = "ARC9_BO1.M82_BoltBack", t = 2.9},
+            {s = "ARC9_BO1.M82_BoltFwd", t = 3.1},
         },
         IKTimeLine = {
             {

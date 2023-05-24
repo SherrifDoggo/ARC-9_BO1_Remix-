@@ -6,9 +6,11 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "FN FAL"
 SWEP.Class = "Assault Rifle"
-SWEP.Description = [[An automatic lightweight rifle firing 7.62x51mm NATO, used by military forces aligned with NATO all over the world.
-Originally designed for the intermediate .280 British and suddenly changed to a .30 caliber to comply with NATO Standards, the rifle found itself shunned by the US military whom had demanded the change of caliber.
-The rifle is very accurate and precise. Its full rifle round gives it excellent stopping power, armor penetration and range. However it suffers while being used in full auto.]]
+SWEP.Description = [[The left arm of the Free World,
+not the right arm because that one would be the AR-15, but you get my point.
+
+High Recoil with high damage, while still having a fire rate on par with 
+other Automatic Rifles. Still requires a precise user to use at it's best.]]
 SWEP.Trivia = {
     Manufacturer = "FN Herstal",
     Calibre = "7.62x51mm NATO",
@@ -26,8 +28,7 @@ SWEP.Slot = 2
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_fal.mdl"
-SWEP.WorldModel = "models/weapons/w_rif_galil.mdl"
-SWEP.WorldModelMirror = "models/weapons/arc9/c_bo1_fal.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo1_fal.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelOffset = {
@@ -36,18 +37,14 @@ SWEP.WorldModelOffset = {
     Bone    =    "ValveBiped.Bip01_R_Hand",
     Scale = 1,
 }
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 80
 
 SWEP.DefaultBodygroups = "00000000000000"
 
-SWEP.CustomCamoTexture = "models/weapons/arc9/bo1/bo1_fal/fal_wood"
-SWEP.CustomCamoScale = 1
-SWEP.CustomBlendFactor = 1
-
-SWEP.DamageMax = 42
+SWEP.DamageMax = 35
 SWEP.DamageMin = 25 -- damage done at maximum range
-SWEP.RangeMax = 8000
-SWEP.RangeMin = 2000
+SWEP.RangeMax = 6000
+SWEP.RangeMin = 0
 SWEP.Penetration = 8
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any
@@ -58,10 +55,10 @@ SWEP.PhysBulletMuzzleVelocity = 1000 * 39.37
 SWEP.BodyDamageMults = {
     [HITGROUP_HEAD] = 2,
     [HITGROUP_CHEST] = 1,
-    [HITGROUP_LEFTARM] = 1,
-    [HITGROUP_RIGHTARM] = 1,
-    [HITGROUP_LEFTLEG] = 1,
-    [HITGROUP_RIGHTLEG] = 1,
+    [HITGROUP_LEFTARM] = 0.8,
+    [HITGROUP_RIGHTARM] = 0.8,
+    [HITGROUP_LEFTLEG] = 0.8,
+    [HITGROUP_RIGHTLEG] = 0.8,
 }
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -69,36 +66,34 @@ SWEP.TracerFinalMag = 0 -- The last X bullets in a magazine are all tracers
 SWEP.TracerEffect = "ARC9_tracer" -- The effect to use for hitscan tracers
 SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
 
-SWEP.ChamberSize = 0 -- dont fucking change this again.
+SWEP.ChamberSize = 1 -- dont fucking change this again.
 SWEP.ClipSize = 20 -- DefaultClip is automatically set.
-SWEP.SupplyLimit = 9
-SWEP.SecondarySupplyLimit = 9
-SWEP.ReloadTime = 1
+SWEP.ReloadTime = 0.8
 
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.Recoil = 0.75
-SWEP.RecoilSide = 0.35
-SWEP.RecoilUp = 1
+SWEP.Recoil = 6
+SWEP.RecoilSide = 2
+SWEP.RecoilUp = 1.5
 
 SWEP.RecoilRandomUp = 0.5
 SWEP.RecoilRandomSide = 0.3
 
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
-SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
+SWEP.RecoilResetTime = 0.001 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 0.5
-SWEP.RecoilKick = 1
+SWEP.RecoilAutoControl = 1
+SWEP.RecoilKick = 6
 
 --1 SPREAD = 2160 MOA
 
-SWEP.Spread = math.rad(1.25 / 37.5)
-SWEP.SpreadMultShooting = 1.25
+SWEP.Spread = math.rad(1.75 / 37.5)
+SWEP.SpreadMultRecoil = 1.25
 
-SWEP.SpreadMultSights = 0.1
-SWEP.SpreadAddHipFire = math.rad(150 / 37.5)
-SWEP.SpreadAddMove = math.rad(0 / 37.5)
+SWEP.SpreadMultSights = 6
+SWEP.SpreadAddHipFire = math.rad(65 / 37.5)
+SWEP.SpreadAddMove = math.rad(150 / 100)
 SWEP.SpreadAddMidAir = 0
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
 
@@ -113,8 +108,8 @@ SWEP.VisualRecoilMultSights = 0
 
 SWEP.Speed = 0.9
 
-SWEP.ShootWhileSprint = true
-SWEP.ReloadInSights = false
+SWEP.ShootWhileSprint = false
+SWEP.ReloadInSights = true
 
 SWEP.SpeedMultSights = 0.8
 SWEP.SpeedMultShooting = 0.75
@@ -125,16 +120,18 @@ SWEP.SpeedMultBlindFire = 1
 SWEP.AimDownSightsTime = 0.2
 SWEP.SprintToFireTime = 0.2
 
-SWEP.RPM = 650
+SWEP.RPM = 500
 SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = 1,
+		PrintName = "SEMI"
     },
     {
         Mode = -1,
-        DamageMaxMult = 0.75,
+        DamageMaxMult = 0.80,
         DamageMinMult = 0.85,
+		PrintName = "AUTO"
     },
 }
 SWEP.ARC9WeaponCategory = 4
@@ -186,8 +183,8 @@ SWEP.CaseBones = {}
 SWEP.IronSights = {
     Pos = Vector(-2.205, -0.5, 0.15),
     Ang = Angle(0.05, 0, 0),
-    Magnification = 1.1,
-    ViewModelFOV = 60,
+    Magnification = 1.25,
+    ViewModelFOV = 50,
     CrosshairInSights = false,
     SwitchToSound = "", -- sound that plays when switching to this sight
 }
@@ -204,7 +201,7 @@ SWEP.HoldTypeSights = "ar2"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_AR2
 
-SWEP.ActivePos = Vector(0, 0, -1)
+SWEP.ActivePos = Vector(0, 0, -1.2)
 SWEP.ActiveAng = Angle(0, 0, -5)
 
 SWEP.ReloadPos = SWEP.ActivePos
@@ -218,14 +215,14 @@ SWEP.MovingMidPoint = {
     Ang = SWEP.ActiveAng
 }
 
-SWEP.CrouchPos = SWEP.ActivePos + Vector(-1, 0, -1)
-SWEP.CrouchAng = SWEP.ActiveAng
+SWEP.CrouchPos = Vector(0, -1, -2.5)
+SWEP.CrouchAng = Angle(0, 0, -20)
 
 SWEP.RestPos = SWEP.ActivePos
 SWEP.RestAng = SWEP.ActiveAng
 
 SWEP.SprintVerticalOffset = false
-SWEP.SprintPos = SWEP.ActivePos
+SWEP.SprintPos = Vector(0, 0, -2)
 SWEP.SprintAng = SWEP.ActiveAng
 
 SWEP.ActivePosHook = function(self)
@@ -297,7 +294,7 @@ end
 
 SWEP.CustomizePos = Vector(12.5, 40, 4)
 SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizeSnapshotPos = Vector(2.5, 5, 0)
+SWEP.CustomizeSnapshotPos = Vector(2.5, 0, 0)
 SWEP.CustomizeSnapshotAng = Angle(0, 0, 0)
 
 SWEP.BarrelLength = 0 -- = 25
@@ -405,19 +402,51 @@ SWEP.HookP_NameChange = function(self, name)
     local attached = self:GetElements()
 
     local gunname = "FN FAL"
+	
     if attached["barrel_para"] then
         gunname = "FN FAL PARA"
     end
+	
     if attached["barrel_osw"] then
         gunname = "DSA SA58 OSW"
     end
 
-    if attached["bo1_pap"] then
-        gunname = "EPC WN"
-        if attached["barrel_osw"] then
-            gunname = "WN Obliterator"
-        end
-    end
+	-- Sentience Combos --
+
+    if attached["bo1r_enchant_sentience"] then
+        gunname = "Pat Quinlan"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "Jessie Mcleod"
+		
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "Jessie Mcleod"
+
+			elseif attached["camo_sdcp_bgsecret"]  then
+			gunname = "Peppino Spaghetti"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Da Vinci"
+			
+			end
+	end
+	
+	-- Rage Combos --
+
+	if attached["bo1r_enchant_rage"] then
+		gunname = "Left Jab"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Cryptex"
+			
+			end
+	end
 
     return gunname
 end
@@ -494,37 +523,29 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Ammunition",
-        DefaultCompactName = "AMMO",
+        DefaultCompactName = "7.62 FMJ",
         Bone = "j_gun",
         Pos = Vector(4.5, 0, -2),
         Ang = Angle(0, 0, 0),
-        Category = {"bo1_ammo", "bo1_pap"},
+        Category = {"bo1_ammotypes_762nato"},
+		ExcludeElements = {"bo1_pap"},
     },
     {
-        PrintName = "Perk-a-Cola",
-        DefaultCompactName = "COLA",
+        PrintName = "Enchantment",
+        DefaultCompactName = "Enchantment",
         Bone = "j_gun",
         Pos = Vector(-4, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = "bo1_perkacola",
+        Category = "bo1r_enchanment",
         ExcludeElements = {"mwc_perk", "mwc_proficiency"},
     },
     {
-        PrintName = "Perk",
-        DefaultCompactName = "PERK",
-        Bone = "j_gun",
-        Pos = Vector(-7, 0, -5),
-        Ang = Angle(0, 0, 0),
-        Category = "mwc_perk",
-        ExcludeElements = {"bo1_perkacola"},
-    },
-    {
-        PrintName = "Proficiency",
-        DefaultCompactName = "PRO",
+        PrintName = "Skill",
+        DefaultCompactName = "Skill",
         Bone = "j_gun",
         Pos = Vector(-10, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = "mwc_proficiency",
+        Category = "bo1r_skill",
         ExcludeElements = {"bo1_perkacola"},
     },
     {
@@ -571,7 +592,6 @@ SWEP.Animations = {
         Source = "first_draw",
         Time = 1,
         EventTable = {
-            {s = "ARC9_BO1.FAL_Button", t = 0},
             {s = "ARC9_BO1.FAL_Charge", t = 0.25}
         },
         IKTimeLine = {
@@ -632,7 +652,7 @@ SWEP.Animations = {
         Time = 2.5,
         EventTable = {
             {s = "ARC9_BO1.FAL_MagOut", t = 0.5},
-            {s = "ARC9_BO1.FAL_MagIn", t = 1.75}
+            {s = "ARC9_BO1.FAL_MagIn", t = 1.6}
         },
         IKTimeLine = {
             {
@@ -662,9 +682,8 @@ SWEP.Animations = {
         Time = 3.1,
         EventTable = {
             {s = "ARC9_BO1.FAL_MagOut", t = 0.5},
-            {s = "ARC9_BO1.FAL_MagIn", t = 1.75},
-            {s = "ARC9_BO1.FAL_Button", t = 2.25},
-            {s = "ARC9_BO1.FAL_Charge", t = 2.5}
+            {s = "ARC9_BO1.FAL_MagIn", t = 1.6},
+            {s = "ARC9_BO1.FAL_Charge", t = 2.25}
         },
         IKTimeLine = {
             {
@@ -691,7 +710,7 @@ SWEP.Animations = {
     },
     ["enter_sprint"] = {
         Source = "sprint_in",
-        Time = 1,
+        Time = 0.5,
         IKTimeLine = {
             {
                 t = 0,
@@ -702,7 +721,7 @@ SWEP.Animations = {
     },
     ["idle_sprint"] = {
         Source = "sprint_loop",
-        Time = 30 / 40,
+        Time = 20 / 30,
         IKTimeLine = {
             {
                 t = 0,
@@ -713,7 +732,7 @@ SWEP.Animations = {
     },
     ["exit_sprint"] = {
         Source = "sprint_out",
-        Time = 1,
+        Time = 0.8,
         IKTimeLine = {
             {
                 t = 0,
@@ -762,7 +781,6 @@ SWEP.Animations = {
         Source = "first_draw_gl",
         Time = 1,
         EventTable = {
-            {s = "ARC9_BO1.FAL_Button", t = 0},
             {s = "ARC9_BO1.FAL_Charge", t = 0.25}
         },
         IKTimeLine = {
@@ -802,7 +820,7 @@ SWEP.Animations = {
         Time = 2.5,
         EventTable = {
             {s = "ARC9_BO1.FAL_MagOut", t = 0.5},
-            {s = "ARC9_BO1.FAL_MagIn", t = 1.75},
+            {s = "ARC9_BO1.FAL_MagIn", t = 1.6},
         },
         IKTimeLine = {
             {
@@ -817,9 +835,8 @@ SWEP.Animations = {
         Time = 3.1,
         EventTable = {
             {s = "ARC9_BO1.FAL_MagOut", t = 0.5},
-            {s = "ARC9_BO1.FAL_MagIn", t = 1.75},
-            {s = "ARC9_BO1.FAL_Button", t = 2.25},
-            {s = "ARC9_BO1.FAL_Charge", t = 2.5}
+            {s = "ARC9_BO1.FAL_MagIn", t = 1.6},
+            {s = "ARC9_BO1.FAL_Charge", t = 2.25}
         },
         IKTimeLine = {
             {
@@ -1009,7 +1026,6 @@ SWEP.Animations = {
         Source = "first_draw_mk",
         Time = 1,
         EventTable = {
-            {s = "ARC9_BO1.FAL_Button", t = 0},
             {s = "ARC9_BO1.FAL_Charge", t = 0.25}
         },
         IKTimeLine = {
@@ -1049,7 +1065,7 @@ SWEP.Animations = {
         Time = 2.5,
         EventTable = {
             {s = "ARC9_BO1.FAL_MagOut", t = 0.5},
-            {s = "ARC9_BO1.FAL_MagIn", t = 1.75},
+            {s = "ARC9_BO1.FAL_MagIn", t = 1.6},
         },
         IKTimeLine = {
             {
@@ -1064,9 +1080,8 @@ SWEP.Animations = {
         Time = 3.1,
         EventTable = {
             {s = "ARC9_BO1.FAL_MagOut", t = 0.5},
-            {s = "ARC9_BO1.FAL_MagIn", t = 1.75},
-            {s = "ARC9_BO1.FAL_Button", t = 2.25},
-            {s = "ARC9_BO1.FAL_Charge", t = 2.5}
+            {s = "ARC9_BO1.FAL_MagIn", t = 1.6},
+            {s = "ARC9_BO1.FAL_Charge", t = 2.25}
         },
         IKTimeLine = {
             {

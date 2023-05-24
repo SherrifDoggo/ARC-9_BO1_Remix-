@@ -6,8 +6,11 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "Death Machine" --tbh I don't like that it's DEATH MACHINE here because thats the pap name, but fuck it, synergy with the BO2 one.
 SWEP.Class = "Heavy Machine Gun"
-SWEP.Description = [[How you are able to carry this deadly machine and shoot it while standing is no importance.
-What you're gonna carry are with it's delivery of 7.62x51mm NATO rounds at 1750 rounds per minute.]]
+SWEP.Description = [[Impossible, Impractical said the nay-sayers. But their word no longer counts in this world, your world. 
+You've got a fucking minigun and they don't. This new world's power is given only to the toughest, meanest son of a bitch ever to walk on two legs. 
+That's you, you and your minigun.
+
+They can run but they sure can't fucking hide.]]
 
 SWEP.Trivia = {
     Manufacturer = "U.S. Ordnance/General Electric",
@@ -26,7 +29,7 @@ SWEP.Slot = 4
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_minigun.mdl"
-SWEP.WorldModel = "models/weapons/w_mach_m249para.mdl"
+SWEP.WorldModel = "models/weapons/arc9/w_bo1_minigun.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelMirror = "models/weapons/arc9/w_bo1_minigun.mdl"
@@ -43,10 +46,10 @@ SWEP.ViewModelFOVBase = 75
 SWEP.DefaultBodygroups = "10"
 SWEP.DefaultWMBodygroups = "00"
 
-SWEP.DamageMax = 50
-SWEP.DamageMin = 30 -- damage done at maximum range
+SWEP.DamageMax = 25
+SWEP.DamageMin = 15 -- damage done at maximum range
 SWEP.RangeMax = 7200
-SWEP.RangeMin = 1800
+SWEP.RangeMin = 0
 SWEP.Penetration = 9
 SWEP.DamageType = DMG_AIRBOAT
 SWEP.ShootEntity = nil -- entity to fire, if any
@@ -73,8 +76,7 @@ SWEP.TracerEffect = "ARC9_tracer" -- The effect to use for hitscan tracers
 SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
 
 SWEP.ChamberSize = 0 -- dont fucking change this again.
-SWEP.ClipSize = 1 -- DefaultClip is automatically set.
-SWEP.SupplyLimit = 500 -- Amount of magazines of ammo this gun can take from an ARC9 supply crate.
+SWEP.ClipSize = 500 -- DefaultClip is automatically set.
 SWEP.ReloadTime = 1
 
 SWEP.BottomlessClip = true
@@ -82,9 +84,9 @@ SWEP.BottomlessClip = true
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.Recoil = 0.35
-SWEP.RecoilSide = 0.5
-SWEP.RecoilUp = 0.5
+SWEP.Recoil = 2
+SWEP.RecoilSide = 0.8
+SWEP.RecoilUp = 1
 
 SWEP.RecoilRandomUp = 0.2
 SWEP.RecoilRandomSide = 0.2
@@ -111,8 +113,8 @@ SWEP.VisualRecoilCenter = Vector(0, 0, 0) -- The "axis" of visual recoil. Where 
 SWEP.VisualRecoilPunch = 0 -- How far back visual recoil moves the gun.
 SWEP.VisualRecoilMultSights = 0 -- Visual recoil multiplier while in sights.
 
-SWEP.Speed = 0.6
-SWEP.ShootWhileSprint = true
+SWEP.Speed = 0.5
+SWEP.ShootWhileSprint = false
 SWEP.ReloadInSights = false
 
 SWEP.SpeedMultSights = 0.8
@@ -124,16 +126,24 @@ SWEP.SpeedMultBlindFire = 1
 SWEP.AimDownSightsTime = 1
 SWEP.SprintToFireTime = 0.75
 
-SWEP.RPM = 1750
+SWEP.RPM = 2000
+
+SWEP.TriggerDelay = true
+SWEP.TriggerDelayTime = 0.5
+SWEP.TriggerDelayRepeat = false
+SWEP.TriggerDelayCancellable = true
+SWEP.TriggerStartFireAnim = false
+
+
 -- SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = -1,
+		PrintName = "AUTO"
     },
 }
 SWEP.ARC9WeaponCategory = 4
 SWEP.NPCWeight = 1
-SWEP.NotForNPCs = true -- Won't be given to NPCs.
 
 SWEP.FreeAimRadius = 0 -- In degrees, how much this gun can free aim in hip fire.
 SWEP.Sway = 0 -- How much the gun sways.
@@ -372,6 +382,34 @@ SWEP.Animations = {
         Source = {"fire_spin"},
         Time = 1,
         ShellEjectAt = 0,
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 1,
+            },
+        },
+    },
+	["trigger"] = {
+        Source = {"spinup"},
+        Time = 0.5,
+        EventTable = {
+            {s = "ARC9_BO1.Minigun_Spinup", t = 0.01}
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 1,
+            },
+        },
+    },
+	["untrigger"] = {
+        Source = {"fire_spin"},
+        Time = 2,
+		EventTable = {
+            {s = "ARC9_BO1.Minigun_Spindown", t = 0.01}
+        },
         IKTimeLine = {
             {
                 t = 0,

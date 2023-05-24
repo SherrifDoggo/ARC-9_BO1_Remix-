@@ -1,0 +1,728 @@
+SWEP.Base = "arc9_base"
+SWEP.Spawnable = true -- this obviously has to be set to true
+SWEP.Category = "ARC9 - Black Ops" -- edit this if you like
+SWEP.SubCategory = "Shotguns"
+SWEP.AdminOnly = false
+
+SWEP.PrintName = "Ithaca 37"
+SWEP.Class = "Shotgun"
+SWEP.Description = [[The classic pump action shotgun you're thinking of when you think pump action shotgun, unless you're thinking of a remington,
+then you're not thinking of this one.
+
+High damage with a tight-ish pellet spread, get up close and make some guts disappear.]]
+SWEP.Trivia = {
+    Manufacturer = "Remington",
+    Calibre = "12 Gauge",
+    Mechanism = "Pump-Action",
+    Country = "USA",
+    Year = 1950,
+    Games = [[Call of Duty: Black Ops]]
+}
+SWEP.Credits = {
+    Author = "Palindrone",
+	Remix = "Sherrifdoggo",
+}
+
+SWEP.Slot = 2
+
+SWEP.UseHands = true
+
+SWEP.ViewModel = "models/weapons/arc9/c_bo1_ithaca.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo1_ithaca.mdl"
+SWEP.MirrorVMWM = true
+SWEP.NoTPIKVMPos = true
+SWEP.WorldModelOffset = {
+    Pos        =    Vector(0, 2, -4.25),
+    Ang        =    Angle(0, 0, 180),
+    Bone    =    "ValveBiped.Bip01_R_Hand",
+    Scale   =   1.1
+}
+SWEP.ViewModelFOVBase = 80
+
+SWEP.CustomCamoTexture = "models/weapons/arc9/bo1/black_detail"
+SWEP.CustomCamoScale = 1
+SWEP.CustomBlendFactor = 1
+
+SWEP.DefaultBodygroups = "000000000"
+
+SWEP.DamageMax = 14
+SWEP.DamageMin = 8 -- damage done at maximum range
+SWEP.RangeMax = 3000
+SWEP.RangeMin = 1500
+SWEP.Penetration = 2
+SWEP.DamageType = DMG_BUCKSHOT
+SWEP.ShootEntity = nil -- entity to fire, if any
+SWEP.EntityMuzzleVelocity = 10000
+
+SWEP.PhysBulletMuzzleVelocity = 400 * 39.37
+
+SWEP.BodyDamageMults = {
+    [HITGROUP_HEAD] = 2,
+    [HITGROUP_CHEST] = 1,
+    [HITGROUP_LEFTARM] = 1,
+    [HITGROUP_RIGHTARM] = 1,
+    [HITGROUP_LEFTLEG] = 1,
+    [HITGROUP_RIGHTLEG] = 1,
+}
+
+SWEP.TracerNum = 1 -- Tracer every X
+SWEP.TracerFinalMag = 0 -- The last X bullets in a magazine are all tracers
+SWEP.TracerEffect = "ARC9_tracer" -- The effect to use for hitscan tracers
+SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
+
+SWEP.ChamberSize = 1 -- dont fucking change this again.
+SWEP.ClipSize = 5 -- DefaultClip is automatically set.
+SWEP.ShotgunReload = true
+SWEP.ReloadTime = 1.15
+
+SWEP.Crosshair = true
+SWEP.CanBlindFire = false
+
+SWEP.Recoil = 7
+SWEP.RecoilSide = 0.75
+SWEP.RecoilUp = 1.6
+
+SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
+SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
+
+SWEP.RecoilAutoControl = 1
+SWEP.RecoilKick = 12
+
+SWEP.Spread = 0.07
+
+SWEP.UseDispersion = true
+SWEP.DispersionSpread = 0.05
+
+SWEP.SpreadAddMove = 0.02
+SWEP.SpreadAddMidAir = 0.04
+SWEP.SpreadAddHipFire = 0
+SWEP.SpreadAddSighted = -0.01
+SWEP.SpreadAddBlindFire = 0
+SWEP.SpreadAddCrouch = 0
+
+SWEP.RecoilPatternDrift = 20
+
+SWEP.VisualRecoilUp = 0
+SWEP.VisualRecoilSide = 0
+SWEP.VisualRecoilRoll = 0
+SWEP.VisualRecoilCenter = Vector(0, 0, 0)
+SWEP.VisualRecoilPunch = 0
+SWEP.VisualRecoilMultSights = 0
+
+SWEP.Speed = 0.95
+
+SWEP.ShootWhileSprint = false
+SWEP.ReloadInSights = true
+
+SWEP.SpeedMultSights = 0.8
+SWEP.SpeedMultShooting = 0.75
+SWEP.SpeedMultMelee = 1
+SWEP.SpeedMultCrouch = 1
+SWEP.SpeedMultBlindFire = 1
+
+SWEP.AimDownSightsTime = 0.11
+SWEP.SprintToFireTime = 0.14
+
+SWEP.RPM = 312
+SWEP.Num = 8
+SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
+SWEP.Firemodes = {
+    {
+        PrintName = "PUMP",
+        Mode = 1,
+        ActivateElements = {"normal"},
+    },
+    {
+        PrintName = "SLAM",
+        Mode = -1,
+        ActivateElements = {"slam"},
+    },
+}
+SWEP.ManualActionChamber = 1 -- How many shots we go between needing to cycle again.
+SWEP.ManualAction = true -- Pump/bolt action. Play the "cycle" animation after firing, when the trigger is released.
+SWEP.ManualActionNoLastCycle = false -- Do not cycle on the last shot.
+SWEP.SlamFire = true
+SWEP.CycleTime = 1
+
+SWEP.ARC9WeaponCategory = 2
+SWEP.NPCWeight = 100
+
+SWEP.FreeAimRadius = 0 -- In degrees, how much this gun can free aim in hip fire.
+SWEP.Sway = 0 -- How much the gun sways.
+
+SWEP.FreeAimRadiusMultSights = 0
+
+SWEP.SwayMultSights = 0
+
+SWEP.Ammo = "buckshot" -- what ammo type the gun uses
+
+SWEP.ShootVolume = 125
+SWEP.ShootPitch = 100
+SWEP.ShootPitchVariation = 0
+
+SWEP.ShootSound = "ARC9_BO1.Ithaca_Fire"
+SWEP.ShootSoundSilenced = "ARC9_BO2.S12_Sil"
+SWEP.DistantShootSound = {"^weapons/arc9/bo2_generic_shotgun/dist/0.wav", "^weapons/arc9/bo2_generic_shotgun/dist/1.wav"}
+
+--SWEP.MuzzleEffect = "muzzleflash_1"
+SWEP.MuzzleParticle = "muzzleflash_shotgun" -- Used for some muzzle effects.
+
+SWEP.ShellModel = "models/shells/shell_12gauge.mdl"
+SWEP.ShellPitch = 90
+SWEP.ShellScale = 2
+
+SWEP.MuzzleEffectQCA = 1 -- which attachment to put the muzzle on
+SWEP.CaseEffectQCA = 2 -- which attachment to put the case effect on
+SWEP.ProceduralViewQCA = 4
+SWEP.CamQCA = 4
+
+SWEP.BulletBones = {
+}
+
+SWEP.ProceduralRegularFire = false
+SWEP.ProceduralIronFire = false
+
+SWEP.CaseBones = {}
+
+SWEP.IronSights = {
+    Pos = Vector(-2.195, 0, 1.35),
+    Ang = Angle(0, 0.2, 0),
+    Magnification = 1.25,
+    ViewModelFOV = 50,
+    SwitchToSound = "", -- sound that plays when switching to this sight
+}
+
+SWEP.SightMidPoint = { -- Where the gun should be at the middle of it's irons
+    Pos = Vector(-1.1, 0, 0.65),
+    Ang = Angle(0, 0.1, 0),
+}
+
+SWEP.HoldTypeHolstered = "passive"
+SWEP.HoldType = "shotgun"
+SWEP.HoldTypeSights = "ar2"
+
+SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_SHOTGUN
+SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_MAGIC
+
+SWEP.ActivePos = Vector(-0.25, 0.5, -0.5)
+SWEP.ActiveAng = Angle(0, 0, -5)
+
+SWEP.MovingPos = SWEP.ActivePos
+SWEP.MovingAng = SWEP.ActiveAng
+
+SWEP.MovingMidPoint = {
+    Pos = SWEP.ActivePos,
+    Ang = SWEP.ActiveAng
+}
+
+SWEP.CrouchPos = SWEP.ActivePos + Vector(-1, -2.5, -0.25)
+SWEP.CrouchAng = SWEP.ActiveAng + Angle(0, 0, -10)
+
+SWEP.RestPos = SWEP.ActivePos
+SWEP.RestAng = SWEP.ActiveAng
+
+SWEP.SprintVerticalOffset = false
+SWEP.SprintPos = SWEP.ActivePos + Vector(-0.5, -5.5, 1)
+SWEP.SprintAng = SWEP.ActiveAng + Angle(0, 0, 18)
+
+SWEP.CustomizePos = Vector(12.5, 40, 4)
+SWEP.CustomizeAng = Angle(90, 0, 0)
+
+SWEP.BarrelLength = 0 -- = 25
+
+SWEP.ExtraSightDist = 5
+
+SWEP.HideBones = {
+    "j_ammo",
+}
+SWEP.ReloadHideBoneTables = {
+    [1] = {"j_ammo"},
+}
+
+SWEP.Hook_ModifyBodygroups = function(self, data)
+
+    local vm = data.model
+    local attached = data.elements
+    if attached["strap"] then
+        vm:SetBodygroup(2,1)
+    end
+    if attached["cheese_grater"] then
+        vm:SetBodygroup(1,1)
+    end
+	
+	if attached["wood_stock"] then
+        vm:SetBodygroup(4,1)
+		vm:SetBodygroup(6,1)
+    end
+	
+	if attached["barrel_l"] then
+        vm:SetBodygroup(5,1)
+		vm:SetBodygroup(3,1)
+		if attached["cheese_grater"] then
+			vm:SetBodygroup(1,2)
+		end
+    end
+	
+	if attached["barrel_s"] then
+        vm:SetBodygroup(5,2)
+		vm:SetBodygroup(3,2)
+		if attached["cheese_grater"] then
+			vm:SetBodygroup(1,3)
+		end
+	end
+	
+    if attached["cod_rail_optic"] then
+        vm:SetBodygroup(3,2)
+    end
+	
+	if attached["noirons"] then
+        vm:SetBodygroup(3,2)
+	end
+
+    local camo = 0
+    if attached["universal_camo"] then
+        camo = 1
+    end
+    if attached["bo1_pap"] then
+        camo = camo + 2
+    end
+    vm:SetSkin(camo)
+
+end
+
+SWEP.HookP_NameChange = function(self, name)
+
+    local attached = self:GetElements()
+
+    local gunname = "Ithaca M37 Stakeout"
+
+	if attached["strap"] and attached["cheese_grater"] then
+        gunname = "Stakeout Custom"
+    end
+	
+	if attached["barrel_l"] then
+		gunname = "Ithaca M37"
+	end
+	
+	if attached["wood_stock"] then
+        gunname = "Ithaca M37 Short"
+		if attached["barrel_l"] then
+			gunname = "Ithaca M37"
+				if attached["strap"] and attached["cheese_grater"] then
+				gunname = "Ithaca M37 Custom"
+			end
+		end
+	end
+		
+	if attached["barrel_s"] then
+        gunname = "Ithaca M37 Chopped"
+		if attached["strap"] and attached["cheese_grater"] then
+			gunname = "Ithaca M37 Custom"
+		end
+    end
+		
+
+	
+	-- Sentience Combos --
+
+    if attached["bo1r_enchant_sentience"] then
+        gunname = "Shotgun Joe"
+
+			if attached["strap"] and attached["cheese_grater"]  then
+			gunname = "Arthur Galt"
+		
+			elseif attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "Jessie Mcleod"
+		
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "Jessie Mcleod"
+
+			elseif attached["camo_sdcp_bgsecret"]  then
+			gunname = "Peppino Spaghetti"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Da Vinci"
+			
+			
+			end
+	end
+	
+	-- Rage Combos --
+
+	if attached["bo1r_enchant_rage"] then
+		gunname = "Angry Wasps"
+		
+			if attached["strap"] and attached["cheese_grater"]  then
+			gunname = "Excessive Force"
+		
+			elseif attached["camo_sdcp_bgsecret"]  then
+			gunname = "War"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Cryptex"
+			
+			elseif attached["bo1r_ithacaatts_barrelshort"] and attached["bo1_ammotype_12gdrns"] then -- Unique Preset (obviously)
+			gunname = "Spread Incarnate"
+		
+			elseif attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "A Lady Scorned"
+			
+			end
+	end
+
+    return gunname
+end
+
+SWEP.Hook_TranslateAnimation = function (self, anim)
+    local attached = self:GetElements()
+    local animla = anim
+    if attached["bo1_igrip"] then
+        animla = anim .. "_grip"
+    end
+    return animla
+end
+
+SWEP.Attachments = {
+    {
+        PrintName = "Top",
+        Bone = "j_gun",
+        Pos = Vector(-1.5, 0.075, 1.25),
+        Ang = Angle(0, 0, 0),
+        Category = {"cod_rail_optic", "bo1r_ithaca_noirons"},
+        Icon_Offset = Vector(0, 0, 0)
+    },
+    {
+        PrintName = "Barrel",
+        Bone = "j_gun",
+        Pos = Vector(15, 0, 1),
+        Ang = Angle(0, 0, 0),
+        Category = "bo1r_ithaca_barrel",
+    },
+	{
+        PrintName = "Heatshield",
+        Bone = "j_gun",
+        Pos = Vector(10, 0, 1),
+        Ang = Angle(0, 0, 0),
+        Category = "bo1r_ithaca_cheesegrater",
+    },
+    {
+        PrintName = "Strap",
+        Bone = "j_gun",
+        Pos = Vector(0, 0, 0),
+        Ang = Angle(0, 0, 0),
+        Category = "bo1r_ithaca_strap",
+    },
+    {
+        PrintName = "Stock",
+        Bone = "j_gun",
+        Pos = Vector(-7.5, 0, 0),
+        Ang = Angle(0, 0, 0),
+        Category = {"bo1r_ithaca_stock"},
+    },
+    {
+        PrintName = "Ammunition",
+        DefaultCompactName = "12G BUCK",
+        Bone = "j_gun",
+        Pos = Vector(0, 0, -2),
+        Ang = Angle(0, 0, 0),
+        Category = {"bo1r_ammotypes_12g"},
+    },
+    {
+        PrintName = "Enchantment",
+        DefaultCompactName = "Enchantment",
+        Bone = "j_gun",
+        Pos = Vector(-3, 0, -5),
+        Ang = Angle(0, 0, 0),
+        Category = "bo1r_enchanment",
+        ExcludeElements = {"mwc_perk", "mwc_proficiency"},
+    },
+    {
+        PrintName = "Skill",
+        DefaultCompactName = "Skill",
+        Bone = "j_gun",
+        Pos = Vector(-6, 0, -5),
+        Ang = Angle(0, 0, 0),
+        Category = "bo1r_skill",
+        ExcludeElements = {"bo1_perkacola"},
+    },
+    {
+        PrintName = "Cosmetic",
+        DefaultCompactName = "Camo",
+        Bone = "j_gun",
+        Pos = Vector(-5, 0, 4),
+        Ang = Angle(0, 0, 0),
+        Category = "universal_camo",
+        CosmeticOnly = true,
+    },
+	{
+        PrintName = "Charm",
+        Category = "charm",
+        Bone = "j_gun",
+        Pos = Vector(1.15, -0.55, -0.15),
+        Ang = Angle(0, 0, 0),
+    },
+	{
+        PrintName = "Sticker",
+        StickerModel = "models/weapons/arc9/atts/stickerslots/ithaca/ithacabo1_stickerslot_a.mdl",
+        Category = "stickers",
+		Pos = Vector(0, 0, 0),
+		Ang = Angle(0, 0, 0),
+    },
+	{
+        PrintName = "Sticker",
+        StickerModel = "models/weapons/arc9/atts/stickerslots/ithaca/ithacabo1_stickerslot_b.mdl",
+        Category = "stickers",
+		Pos = Vector(0, 0, 0),
+		Ang = Angle(0, 0, 0),
+    },
+}
+
+SWEP.StandardPresets = {
+	"[Custom]XQAAAQDdAAAAAAAAAAA9iIIiM7tupQCpjtobRJEkdevdtR3kygwZeSaFA3RQvlZ2JLgMxeOT13Ad8a6VW/YXSc3KImZPwdNzRv/bB20vSlb/LacjNOfpl7Mi7jbU/DhU9E6nEhtRGet/c4oAI9eYOpi2XmAH2XI=",
+	"[Civilian]XQAAAQAFAQAAAAAAAAA9iIIiM7tuo1AtTygaYBCS4wQhEEZOaRTJKqwByqeBWLJEHlp2ni1IXKuzgubysq7MoWkG4J6t+uMDxwk1gmLj4iucsBVYxk871uxIv+XvB/cAaeLegPkQDYUYyk0YJwaJegxTQyv1N/3dPpUkSPs/iRmYhBrZ4n24XqN5kA==",
+	
+	"[Spread Incarnate]XQAAAQACAQAAAAAAAAA9iIIiM7tupQCpjtobRJEkddyNyXCSVCSuhCWywRsqpJf5KgUra5H2+G4V3C+EZ1QcrDIR9iCDGYTE0As+rcTW6boNgrh0FSLxHJkzembTjL1223s4MZdx8+AlOFrbWjk4wNwWyxdCO7FAgkc0iaeVsG+Wr4r1oIJNMk5dCaKoheifVTPqNg==",
+
+}
+
+SWEP.Animations = {
+    ["idle"] = {
+        Source = "idle",
+        Time = 1 / 35,
+    },
+    ["draw"] = {
+        Source = "draw",
+        Time = 1,
+    },
+    ["holster"] = {
+        Source = "holster",
+        Time = 0.75,
+    },
+    ["ready"] = {
+        Source = "first_draw",
+        Time = 53 / 30,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 15 / 30},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 21 / 30}
+        },
+    },
+    ["fire"] = {
+        Source = {
+            "fire",
+        },
+        Time = 9 / 10,
+        ShellEjectAt = 0.15,
+    },
+    ["fire_iron"] = {
+        Source = {
+            "fire_ads",
+        },
+        Time = 9 / 10,
+        ShellEjectAt = 0.15,
+    },
+    ["cycle"] = {
+        Source = {
+            "pump",
+        },
+        Time = 30 / 35,
+        ShellEjectAt = 0.3,
+        MinProgress = 22 / 35,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 5 / 30},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 10 / 30},
+        },
+    },
+    ["cycle_iron"] = {
+        Source = {
+            "pump_ads",
+        },
+        Time = 20 / 25,
+        ShellEjectAt = 0.3,
+        MinProgress = 22 / 35,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 2 / 25},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 9 / 25},
+        },
+    },
+    ["cycle_slam"] = {
+        Source = {
+            "pump_ads",
+        },
+        Time = 20 / 25,
+        ShellEjectAt = 0.3,
+        MinProgress = 22 / 35,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 2 / 25},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 9 / 25},
+        },
+    },
+    ["reload_start"] = {
+        Source = "reload_in_empty",
+        Time = 30 / 30,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_Shell", t = 21 / 30},
+        },
+        RestoreAmmo = 1,
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 1
+            },
+            {
+                t = 1,
+                lhik = 1,
+                rhik = 1
+            },
+        },
+    },
+    ["reload_insert"] = {
+        Source = "reload_loop",
+        Time = 16 / 30,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_Shell", t = 10 / 30},
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 1
+            },
+            {
+                t = 1,
+                lhik = 1,
+                rhik = 1
+            },
+        },
+    },
+    ["reload_finish"] = {
+        Source = "reload_out",
+        Time = 22 / 30,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 8 / 30},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 12 / 30},
+        },
+        IKTimeLine = {
+            {
+                t = 0,
+                lhik = 1,
+                rhik = 1
+            },
+            {
+                t = 1,
+                lhik = 1,
+                rhik = 1
+            },
+        },
+    },
+    ["enter_sprint"] = {
+        Source = "sprint_in",
+        Time = 1,
+    },
+    ["idle_sprint"] = {
+        Source = "sprint_loop",
+        Time = 18 / 30
+    },
+    ["exit_sprint"] = {
+        Source = "sprint_out",
+        Time = 1,
+    },
+
+    --GRIP--
+
+    ["idle_grip"] = {
+        Source = "idle_grip",
+        Time = 1 / 35,
+    },
+    ["draw_grip"] = {
+        Source = "draw_grip",
+        Time = 1,
+    },
+    ["ready_grip"] = {
+        Source = "draw_grip",
+        Time = 1,
+    },
+    ["fire_grip"] = {
+        Source = {
+            "fire_grip",
+        },
+        Time = 9 / 35,
+    },
+    ["fire_iron_grip"] = {
+        Source = {
+            "fire_ads_grip",
+        },
+        Time = 9 / 35,
+    },
+    ["cycle_grip"] = {
+        Source = {
+            "pump_grip",
+        },
+        Time = 30 / 35,
+        ShellEjectAt = 10 / 35,
+        MinProgress = 22 / 35,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 5 / 30},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 10 / 30},
+        },
+    },
+    ["cycle_iron_grip"] = {
+        Source = {
+            "pump_ads_grip",
+        },
+        Time = 20 / 25,
+        ShellEjectAt = 5 / 35,
+        MinProgress = 22 / 35,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 2 / 25},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 9 / 25},
+        },
+    },
+    ["cycle_grip_slam"] = {
+        Source = {
+            "pump_ads_grip",
+        },
+        Time = 20 / 25,
+        ShellEjectAt = 5 / 35,
+        MinProgress = 22 / 35,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 2 / 25},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 9 / 25},
+        },
+    },
+    ["reload_start_grip"] = {
+        Source = "reload_in_grip",
+        Time = 15 / 30,
+        -- RestoreAmmo = 1,
+    },
+    ["reload_insert_grip"] = {
+        Source = "reload_loop_grip",
+        Time = 16 / 30,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_Shell", t = 10 / 30},
+        },
+    },
+    ["reload_finish_grip"] = {
+        Source = "reload_out_grip",
+        Time = 22 / 30,
+        EventTable = {
+            {s = "ARC9_BO1.Ithaca_PumpBack", t = 8 / 30},
+            {s = "ARC9_BO1.Ithaca_PumpFwd", t = 12 / 30},
+        },
+    },
+    ["enter_sprint_grip"] = {
+        Source = "sprint_in_grip",
+        Time = 1,
+    },
+    ["idle_sprint_grip"] = {
+        Source = "sprint_loop_grip",
+        Time = 30 / 30
+    },
+    ["exit_sprint_grip"] = {
+        Source = "sprint_out_grip",
+        Time = 1,
+    },
+}

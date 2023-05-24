@@ -6,7 +6,9 @@ SWEP.AdminOnly = false
 
 SWEP.PrintName = "FAMAS" --it's an acronym so idk why you shouldn't have it capitalzied. BO1 had it weird
 SWEP.Class = "Assault Rifle"
-SWEP.Description = [[A French assault rifle firing the 5.56mm NATO round Using a bullpup configuration to keep it a compact size.]]
+SWEP.Description = [[A french gun with fancy french edges and french all over. It's also french, like from France.
+
+Buts more bullets downrange when compared to other Assault Rifles, though it bucks more than most.]]
 SWEP.Trivia = {
     Manufacturer = "GIAT Industries",
     Calibre = "5.56x45mm NATO",
@@ -16,7 +18,8 @@ SWEP.Trivia = {
     Games = [[MW2, BO1, BO3, MW19, BOCW]]
 }
 SWEP.Credits = {
-    Author = "Palindrone"
+    Author = "Palindrone",
+	Remix = "Sherrifdoggo",
 }
 
 SWEP.Slot = 2
@@ -24,8 +27,7 @@ SWEP.Slot = 2
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_famas.mdl"
-SWEP.WorldModel = "models/weapons/w_rif_famas.mdl"
-SWEP.WorldModelMirror = "models/weapons/arc9/c_bo1_famas.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo1_famas.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelOffset = {
@@ -34,28 +36,28 @@ SWEP.WorldModelOffset = {
     Bone    =    "ValveBiped.Bip01_R_Hand",
     Scale = 1.05,
 }
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 80
 
 SWEP.DefaultBodygroups = "00000000000000"
 
-SWEP.DamageMax = 28
-SWEP.DamageMin = 18 -- damage done at maximum range
-SWEP.RangeMax = 8000
-SWEP.RangeMin = 2000
+SWEP.DamageMax = 23
+SWEP.DamageMin = 12 -- damage done at maximum range
+SWEP.RangeMax = 6000
+SWEP.RangeMin = 0
 SWEP.Penetration = 8
 SWEP.DamageType = DMG_BULLET
 SWEP.ShootEntity = nil -- entity to fire, if any
 SWEP.EntityMuzzleVelocity = 10000
 
-SWEP.PhysBulletMuzzleVelocity = 900 * 39.37
+SWEP.PhysBulletMuzzleVelocity = 850 * 39.37
 
 SWEP.BodyDamageMults = {
     [HITGROUP_HEAD] = 2,
     [HITGROUP_CHEST] = 1,
-    [HITGROUP_LEFTARM] = 1,
-    [HITGROUP_RIGHTARM] = 1,
-    [HITGROUP_LEFTLEG] = 1,
-    [HITGROUP_RIGHTLEG] = 1,
+    [HITGROUP_LEFTARM] = 0.8,
+    [HITGROUP_RIGHTARM] = 0.8,
+    [HITGROUP_LEFTLEG] = 0.8,
+    [HITGROUP_RIGHTLEG] = 0.8,
 }
 
 SWEP.TracerNum = 1 -- Tracer every X
@@ -63,34 +65,31 @@ SWEP.TracerFinalMag = 0 -- The last X bullets in a magazine are all tracers
 SWEP.TracerEffect = "ARC9_tracer" -- The effect to use for hitscan tracers
 SWEP.TracerColor = Color(255, 255, 255) -- Color of tracers. Only works if tracer effect supports it. For physical bullets, this is compressed down to 9-bit color.
 
-SWEP.ChamberSize = 0 -- dont fucking change this again.
+SWEP.ChamberSize = 1 -- dont fucking change this again.
 SWEP.ClipSize = 25 -- DefaultClip is automatically set.
-SWEP.SupplyLimit = 9
-SWEP.SecondarySupplyLimit = 9
-SWEP.ReloadTime = 1
+SWEP.ReloadTime = 0.8
 
 SWEP.Crosshair = true
 SWEP.CanBlindFire = false
 
-SWEP.Recoil = 0.3
-SWEP.RecoilSide = 0.5
+SWEP.Recoil = 2
+SWEP.RecoilSide = 0.7
 SWEP.RecoilUp = 0.7
-
-SWEP.RecoilRandomUp = 0.4
-SWEP.RecoilRandomSide = 0.3
 
 SWEP.RecoilDissipationRate = 40 -- How much recoil dissipates per second.
 SWEP.RecoilResetTime = 0.01 -- How long the gun must go before the recoil pattern starts to reset.
 
-SWEP.RecoilAutoControl = 0.25
-SWEP.RecoilKick = 1
+SWEP.RecoilAutoControl = 1
+SWEP.RecoilKick = 3
+
+SWEP.SpreadMultShooting = 2
 
 SWEP.Spread = math.rad(1.75 / 37.5)
-SWEP.SpreadMultShooting = 1.25
+SWEP.SpreadMultShooting = 1.5
 
-SWEP.SpreadMultSights = 0.1
-SWEP.SpreadAddHipFire = math.rad(150 / 37.5)
-SWEP.SpreadAddMove = math.rad(0 / 37.5)
+SWEP.SpreadMultSights = 10
+SWEP.SpreadAddHipFire = math.rad(100 / 37.5)
+SWEP.SpreadAddMove = math.rad(60 / 100)
 SWEP.SpreadAddMidAir = 0
 -- SWEP.SpreadAddShooting = math.rad(5 / 37.5) -- math.rad(108 / 37.5)
 
@@ -105,8 +104,8 @@ SWEP.VisualRecoilMultSights = 0
 
 SWEP.Speed = 0.95
 
-SWEP.ShootWhileSprint = true
-SWEP.ReloadInSights = false
+SWEP.ShootWhileSprint = false
+SWEP.ReloadInSights = true
 
 SWEP.SpeedMultSights = 0.8
 SWEP.SpeedMultShooting = 0.75
@@ -117,17 +116,16 @@ SWEP.SpeedMultBlindFire = 1
 SWEP.AimDownSightsTime = 0.11
 SWEP.SprintToFireTime = 0.14
 
-SWEP.RPM = 1000
+SWEP.RPM = 800
 SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         Mode = -1,
+		PrintName = "AUTO"
     },
     {
         Mode = 1,
-    },
-    {
-        Mode = 3,
+		PrintName = "SEMI"
     },
 }
 SWEP.RunawayBurst = true
@@ -182,8 +180,8 @@ SWEP.Bipod = true
 SWEP.IronSights = {
     Pos = Vector(-2.895, -5, 0.3),
     Ang = Angle(0.025, -0.15, 0),
-    Magnification = 1.1,
-    ViewModelFOV = 60,
+    Magnification = 1.25,
+    ViewModelFOV = 50,
     CrosshairInSights = false,
     SwitchToSound = "", -- sound that plays when switching to this sight
 }
@@ -200,8 +198,8 @@ SWEP.HoldTypeSights = "ar2"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_AR2
 
-SWEP.ActivePos = Vector(0, 0, -1)
-SWEP.ActiveAng = Angle(0, 0, -5)
+SWEP.ActivePos = Vector(0.25, 0, -1)
+SWEP.ActiveAng = Angle(0, 0, -2)
 
 SWEP.MovingPos = SWEP.ActivePos
 SWEP.MovingAng = SWEP.ActiveAng
@@ -211,15 +209,15 @@ SWEP.MovingMidPoint = {
     Ang = SWEP.ActiveAng
 }
 
-SWEP.CrouchPos = SWEP.ActivePos + Vector(-1, 0, -1)
-SWEP.CrouchAng = SWEP.ActiveAng
+SWEP.CrouchPos = Vector(-1.5, -3, -2)
+SWEP.CrouchAng = Angle(-1, 0, -15)
 
 SWEP.RestPos = SWEP.ActivePos
 SWEP.RestAng = SWEP.ActiveAng
 
 SWEP.SprintVerticalOffset = false
-SWEP.SprintPos = SWEP.ActivePos
-SWEP.SprintAng = SWEP.ActiveAng
+SWEP.SprintPos = SWEP.ActivePos + Vector(-0.5, 1, -0.5)
+SWEP.SprintAng = SWEP.ActiveAng + Angle(20, 0, 0)
 
 SWEP.BipodPos = Vector(-2.895, 0, -1.5)
 SWEP.BipodAng = Angle(0, 0, 0)
@@ -356,9 +354,46 @@ SWEP.HookP_NameChange = function(self, name)
     if attached["famas_f1"] then
         gunname = "FAMAS F1"
     end
-    if attached["bo1_pap"] then
-        gunname = "G16-GL35"
-    end
+	
+	-- Sentience Combos --
+
+    if attached["bo1r_enchant_sentience"] then
+        gunname = "Joan Of Arc"
+		
+			if attached["famas_f1"]  then
+			gunname = "Ben Stiller"
+			
+			elseif attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "Jessie Mcleod"
+		
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "Jessie Mcleod"
+
+			elseif attached["camo_sdcp_bgsecret"]  then
+			gunname = "Peppino Spaghetti"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Da Vinci"
+			
+			end
+	end
+	
+	-- Rage Combos --
+
+	if attached["bo1r_enchant_rage"] then
+		gunname = "Guillotine"
+		
+			if attached["camo_sdcp_toomanyjessies"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_toomanyjessies2"]  then
+			gunname = "A Lady Scorned"
+			
+			elseif attached["camo_sdcp_shrinedefender"]  then
+			gunname = "Cryptex"
+			
+			end
+	end
 
     return gunname
 end
@@ -409,71 +444,75 @@ SWEP.Attachments = {
     },
     {
         PrintName = "Underbarrel",
-        DefaultCompactName = "UB",
+        DefaultCompactName = "Underbarrel",
         Bone = "j_gun",
         Pos = Vector(9.5, 0, 1.25),
         Ang = Angle(0, 0, 0),
         Category = {"bo1_m203", "bo1_mk", "cod_rail_underbarrel"},
     },
+	{
+        PrintName = "Receiver",
+        DefaultCompactName = "Receiver",
+        Bone = "j_gun",
+        Pos = Vector(5, 0, 3),
+        Ang = Angle(0, 0, 0),
+        Category = {"bo1_famas_receiver"},
+    },
     {
-        PrintName = "Fire Control Group",
-        DefaultCompactName = "AUTO",
+        PrintName = "Internals",
+        DefaultCompactName = "Internals",
         Bone = "j_gun",
         Pos = Vector(2, 0, 0),
         Ang = Angle(0, 0, 0),
-        Category = {"bo1_fcg_semi"},
+        Category = {"bo1_famas_internals"},
     },
     {
         PrintName = "Ammunition",
-        DefaultCompactName = "AMMO",
+        DefaultCompactName = "5.56 FMJ",
         Bone = "tag_clip",
-        Pos = Vector(-1, 0, -1.25),
+        Pos = Vector(-1.25, 0, -0.5),
         Ang = Angle(0, 0, 0),
-        Category = {"bo1_ammo", "bo1_pap"},
+        Category = {"bo1_556nato_ammo"},
+    },
+	{
+        PrintName = "Enchantment",
+        DefaultCompactName = "Enchantment",
+        Bone = "j_gun",
+        Pos = Vector(-3, 0, -5),
+        Ang = Angle(0, 0, 0),
+        Category = "bo1r_enchanment",
+        ExcludeElements = {"mwc_perk", "mwc_proficiency"},
     },
     {
-        PrintName = "Receiver",
-        DefaultCompactName = "Valorisé",
+        PrintName = "Skill",
+        DefaultCompactName = "Skill",
         Bone = "j_gun",
-        Pos = Vector(5, 0, 4),
+        Pos = Vector(-6, 0, -5),
         Ang = Angle(0, 0, 0),
-        Category = {"bo1_famas_receiver"},
-        CosmeticOnly = true,
+        Category = "bo1r_skill",
+        ExcludeElements = {"bo1_perkacola"},
     },
     {
-        PrintName = "Cosmetic",
+        PrintName = "Camo",
         Bone = "j_gun",
-        Pos = Vector(-6, 0, 2.65),
+        Pos = Vector(3, 0, 2.65),
         Ang = Angle(0, 0, 0),
         Category = {"universal_camo"},
         CosmeticOnly = true,
     },
-    {
-        PrintName = "Perk-a-Cola",
-        DefaultCompactName = "COLA",
+	{
+        PrintName = "Charm",
+        Category = "charm",
         Bone = "j_gun",
-        Pos = Vector(-3, 0, -5),
+        Pos = Vector(-1.8, -0.74, 2),
         Ang = Angle(0, 0, 0),
-        Category = "bo1_perkacola",
-        ExcludeElements = {"mwc_perk", "mwc_proficiency"},
     },
-    {
-        PrintName = "Perk",
-        DefaultCompactName = "PERK",
-        Bone = "j_gun",
-        Pos = Vector(-6, 0, -5),
-        Ang = Angle(0, 0, 0),
-        Category = "mwc_perk",
-        ExcludeElements = {"bo1_perkacola"},
-    },
-    {
-        PrintName = "Proficiency",
-        DefaultCompactName = "PRO",
-        Bone = "j_gun",
-        Pos = Vector(-9, 0, -5),
-        Ang = Angle(0, 0, 0),
-        Category = "mwc_proficiency",
-        ExcludeElements = {"bo1_perkacola"},
+	{
+        PrintName = "Sticker",
+        StickerModel = "models/weapons/arc9/atts/stickerslots/famas/famasbo1_stickerslot_a.mdl",
+        Category = "stickers",
+		Pos = Vector(-6, 0, 2.65),
+		Ang = Angle(0, 0, 0),
     },
 }
 
@@ -612,7 +651,7 @@ SWEP.Animations = {
     },
     ["idle_sprint"] = {
         Source = "sprint_loop",
-        Time = 30 / 40
+        Time = 26 / 40
     },
     ["exit_sprint"] = {
         Source = "sprint_out",

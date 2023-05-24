@@ -25,17 +25,16 @@ SWEP.Slot = 4
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/weapons/arc9/c_bo1_rpg7.mdl"
-SWEP.WorldModel = "models/weapons/w_rocket_launcher.mdl"
-SWEP.WorldModelMirror = "models/weapons/arc9/c_bo1_rpg7.mdl"
+SWEP.WorldModel = "models/weapons/arc9/c_bo1_rpg7.mdl"
 SWEP.MirrorVMWM = true
 SWEP.NoTPIKVMPos = true
 SWEP.WorldModelOffset = {
-    Pos        =    Vector(1, 2, -5),
+    Pos        =    Vector(1, 2, -7),
     Ang        =    Angle(-7.5, 3, 180),
     Bone    =    "ValveBiped.Bip01_R_Hand",
     Scale = 1.2,
 }
-SWEP.ViewModelFOVBase = 75
+SWEP.ViewModelFOVBase = 80
 
 SWEP.DefaultBodygroups = "00000000000000"
 
@@ -79,8 +78,6 @@ SWEP.FancyBullets = true
 
 SWEP.ChamberSize = 0 -- dont fucking change this again.
 SWEP.ClipSize = 1 -- DefaultClip is automatically set.
-SWEP.SupplyLimit = 9
-SWEP.SecondarySupplyLimit = 9
 SWEP.ReloadTime = 1
 
 SWEP.Crosshair = true
@@ -119,10 +116,10 @@ SWEP.VisualRecoilCenter = Vector(0, 0, 0)
 SWEP.VisualRecoilPunch = 0
 SWEP.VisualRecoilMultSights = 0
 
-SWEP.Speed = 1
+SWEP.Speed = 0.75
 
-SWEP.ShootWhileSprint = true
-SWEP.ReloadInSights = false
+SWEP.ShootWhileSprint = false
+SWEP.ReloadInSights = true
 
 SWEP.SpeedMultSights = 0.8
 SWEP.SpeedMultShooting = 0.75
@@ -130,20 +127,19 @@ SWEP.SpeedMultMelee = 1
 SWEP.SpeedMultCrouch = 1
 SWEP.SpeedMultBlindFire = 1
 
-SWEP.AimDownSightsTime = 1
+SWEP.AimDownSightsTime = 0.5
 SWEP.SprintToFireTime = 0.4
 
 SWEP.RPM = 150
 SWEP.AmmoPerShot = 1 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
-        Mode = -1,
-        PrintName = "SINGLE"
+        Mode = 1,
+        PrintName = "SNGL"
     },
 }
 SWEP.ARC9WeaponCategory = 6
 SWEP.NPCWeight = 100
-SWEP.NotForNPCs = true -- Won't be given to NPCs.
 
 SWEP.FreeAimRadius = 0 -- In degrees, how much this gun can free aim in hip fire.
 SWEP.Sway = 0 -- How much the gun sways.
@@ -184,9 +180,9 @@ SWEP.CaseBones = {}
 
 SWEP.IronSights = {
     Pos = Vector(0, 0, 0),
-    Ang = Angle(0, 0, 0),
+    Ang = Angle(0, 0, -20),
     Magnification = 1.25,
-    ViewModelFOV = 60,
+    ViewModelFOV = 50,
     CrosshairInSights = false,
     SwitchToSound = "", -- sound that plays when switching to this sight
 }
@@ -203,8 +199,8 @@ SWEP.HoldTypeSights = "rpg"
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_RPG
 SWEP.NonTPIKAnimReload = ACT_HL2MP_GESTURE_RELOAD_RPG
 
-SWEP.ActivePos = Vector(3, 4, -1)
-SWEP.ActiveAng = Angle(0, 0, 0)
+SWEP.ActivePos = Vector(3, 4, 1)
+SWEP.ActiveAng = Angle(0, 0, -5)
 
 SWEP.MovingPos = SWEP.ActivePos
 SWEP.MovingAng = SWEP.ActiveAng
@@ -221,7 +217,7 @@ SWEP.RestPos = SWEP.ActivePos
 SWEP.RestAng = SWEP.ActiveAng
 
 SWEP.SprintVerticalOffset = false
-SWEP.SprintPos = SWEP.ActivePos
+SWEP.SprintPos = SWEP.ActivePos + Vector(-8, 0, -4)
 SWEP.SprintAng = SWEP.ActiveAng
 
 SWEP.CustomizePos = Vector(5, 50, 4)
